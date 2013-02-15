@@ -44,6 +44,12 @@ Constraints :
 
 Note: 24 00 has to be presented as 00 00.
 
+Algorithm :
+
+1. Create an array of size 1440 which is 24 x 7 and init with 0
+2. For each input schedule, book all the index of the arrays ( 00:00 01:00 -> index 0 to 59 -> 1
+3. Find the length of each free time ( Number of zeroes ) and check if length is more than specified free time
+
 
 */
 

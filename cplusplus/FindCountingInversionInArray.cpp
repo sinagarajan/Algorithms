@@ -4,6 +4,13 @@ Find number of inversions in the array . Example : {1,3,4,2} . Right element  < 
 
 Using the merge sort find the inversions . [ Whenever right hand side is less, all the remaning elements in left contribute to the inversion count
 
+
+Algorithm :
+
+1. Do the merge sort as usual
+
+2. During the conquer steps, if any element in left is greater than element in right, then all element from left to mid will add to the inversion count
+
 */
 
 # include <iostream>
