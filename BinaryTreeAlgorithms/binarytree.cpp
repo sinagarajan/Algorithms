@@ -433,6 +433,7 @@ struct tree* findLargestBSTSubtree(struct tree *root) {
   return largestBST;
 }
 
+/* Find the nodes along the circumference of the tree . Select first and last nodes in each level followed by choosing the leaf nodes at each level */
 
 void findCircumference(struct tree *root)
 {
@@ -449,6 +450,9 @@ void findCircumference(struct tree *root)
 	{
 		itr= s1.top();
 		s1.pop();
+
+		//Concept of same two stack used for zig zag traversal
+
 		if(itr->left !=NULL)
 		{
 			s2.push(itr->left);
@@ -459,9 +463,10 @@ void findCircumference(struct tree *root)
 			s2.push(itr->right);
 			++nextLevel;
 		}
-		if((itr->left == NULL && itr->right == NULL) && (count != 0) && (count != currLevel))
-			printf("\t%d", itr->data);
-		if(count == 0 || count == currLevel-1)
+
+		//Check for node at the circumference
+
+		if((itr->left == NULL && itr->right == NULL) || (count != 0) || (count != currLevel-1))
 			printf("\t%d", itr->data);
 		++count;
 		if(s1.empty())
