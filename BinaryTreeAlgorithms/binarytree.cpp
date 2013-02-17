@@ -466,7 +466,7 @@ void findCircumference(struct tree *root)
 
 		//Check for node at the circumference
 
-		if((itr->left == NULL && itr->right == NULL) || (count != 0) || (count != currLevel-1))
+		if((itr->left == NULL && itr->right == NULL) || (count == 0) || (count == currLevel-1))
 			printf("\t%d", itr->data);
 		++count;
 		if(s1.empty())
