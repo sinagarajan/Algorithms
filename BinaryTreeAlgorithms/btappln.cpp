@@ -27,6 +27,7 @@ while(1)
                                 "\n17 Find Diamter of the tree"<<
                                 "\n18 Convert sorted array to BST"<<
                                 "\n19 Find Max BST"<<
+				"\n20 Find Nodes in Circumference"<<
                                 "\n50 Exit\n";
         scanf("%d",&i);
         switch (i)
@@ -48,6 +49,8 @@ while(1)
                         printLevelorder(root);
                         break;
                 case 6:
+			printf("\nEnter the value \n");scanf("%d",&input);
+			insertNodeBT(root,input);	
                         break;
                 case 7:
                         input=countNode(root);
@@ -109,6 +112,9 @@ while(1)
 //                        printLevelorder(itr);
 			cout<<"not implemented yet\n";
                         break;
+		case 20:
+			findCircumference(root);
+			break;
                 case 50:
                         exit(1);
                 default:

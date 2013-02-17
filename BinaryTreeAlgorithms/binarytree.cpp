@@ -432,3 +432,47 @@ struct tree* findLargestBSTSubtree(struct tree *root) {
   findLargestBSTSubtree(root, min, max, maxNodes, largestBST);
   return largestBST;
 }
+
+
+void findCircumference(struct tree *root)
+{
+	int currLevel = 0, nextLevel =0 , count = 0;
+	struct tree *itr;
+	stack<struct tree *> s1;
+	stack<struct tree *> s2;
+	stack<struct tree *> temp;
+	if(root == NULL)
+		return ;
+	s1.push(root);
+	++currLevel;
+	while(!s1.empty())
+	{
+		itr= s1.top();
+		s1.pop();
+		if(itr->left !=NULL)
+		{
+			s2.push(itr->left);
+			++nextLevel;
+		}
+		if(itr->right != NULL)
+		{
+			s2.push(itr->right);
+			++nextLevel;
+		}
+		if((itr->left == NULL && itr->right == NULL) && (count != 0) && (count != currLevel))
+			printf("\t%d", itr->data);
+		if(count == 0 || count == currLevel-1)
+			printf("\t%d", itr->data);
+		++count;
+		if(s1.empty())
+		{
+			s1 = s2;
+			s2 = temp;
+			count=0;
+			currLevel = nextLevel;
+			nextLevel = 0;
+		}
+
+	}
+
+}

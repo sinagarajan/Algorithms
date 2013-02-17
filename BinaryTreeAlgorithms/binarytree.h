@@ -31,6 +31,7 @@ void printPreorderRecursive(struct tree *root);
 
 void printPostorderRecursive(struct tree *root);
 
+void findCircumference(struct tree *root);
 
 void printLevelorder(struct tree *root);
 
