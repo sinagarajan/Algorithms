@@ -1,29 +1,60 @@
 /*
+Let A[0...n - 1] be an array of n distinct positive integers. If i < j and A[i] > A[j] then the pair (i, j) is called an inversion of A. Given n and an array A your task is to find the number of inversions of A.
+Input
 
-Find number of inversions in the array . Example : {1,3,4,2} . Right element  < Left Element . In this case 2 is less than 3 and 4 and hence inversions count=2
+The first line contains t, the number of testcases followed by a blank space. Each of the t tests start with a number n (n <= 200000). Then n + 1 lines follow. In the ith line a number A[i - 1] is given (A[i - 1] <= 10^7). The (n + 1)th line is a blank space.
+Output
 
-Using the merge sort find the inversions . [ Whenever right hand side is less, all the remaning elements in left contribute to the inversion count
+For every test output one line giving the number of inversions of A.
+Example
+
+Input:
+
+2
+
+3
+3
+1
+2
+
+5
+2
+3
+8
+6
+1
 
 
-Algorithm :
+Output:
 
-1. Do the merge sort as usual
+2
+5
 
-2. During the conquer steps, if any element in left is greater than element in right, then all element from left to mid will add to the inversion count
+
+ALGORITHM :
+
+1. Use Merge Sort 
+2. One of the merge sort - Right Hand Side - will be invoked indicates inv count
 
 */
 
-# include <iostream>
 
+
+
+
+# include <stdio.h>
+# include <iostream>
+# include <string.h>
+typedef unsigned long long ullong;
 using namespace std;
 
 /* Merge function uses temp array that sorts all chracters from left to right */
 
-int merge(int *array,int left, int mid,int right)
+ullong merge(ullong *array,int left, int mid,int right)
 {
 
-        int inv=0;
-        int temp[right-left+1];
+        ullong inv=0;
+        ullong temp[right-left+1];
         int pos=0,lpos=left,rpos=mid+1;
         while(lpos <=mid && rpos <= right)
         {
@@ -67,9 +98,9 @@ int merge(int *array,int left, int mid,int right)
 
 /* Merge functions that divides and call the conquers */
 
-int mergesort(int arr[],int left,int right)
+ullong mergesort(ullong arr[],int left,int right)
 {
-        int inv=0;
+        ullong inv=0;
         int mid=(left+right)/2;
         if(right > left)
         {
@@ -82,8 +113,20 @@ int mergesort(int arr[],int left,int right)
 
 int main()
 {
-        int arr[]={5,4,3,2,1};
-        printf("Count is %d",mergesort(arr,0,4));
-        for(int i=0;i<5;i++)
-                printf("\t%d",arr[i]);
+    ullong array[200001];
+    int tests,inputs;
+    scanf("%d",&tests);
+    while(tests--)
+    {
+        scanf("%d",&inputs);
+        memset(array,0,sizeof(array));
+        for(int i=0; i< inputs;++i)
+        {
+            cin>>array[i];
+        }
+        cout<<mergesort(array,0,inputs-1)<<endl;
+    }
 }
+
+
+
