@@ -90,4 +90,12 @@ NutritionFacts cocaCola = new NutritionFacts.Builder(240, 8).calories(100).build
       Private constructor can have exception as insurance . Used for classes that need not have instances
       
       Ex: Utility class. Side effect: No inheritance 
+      
+  Avoid unnecessary object creation
+  
+      Reuse if your object doesn't change. Avoid autoboxing 
+      
+      String s="siva" is better than String s= new String("siva");
+      Use static instances
+      
         
