@@ -66,4 +66,28 @@ public class NutritionFacts {
 CLIENT CODE :
 
 NutritionFacts cocaCola = new NutritionFacts.Builder(240, 8).calories(100).build();
+
+    DISADVANTAGES:
+    
+        You need to create builder before object and hence performance is affected
+        
+  Singleton
+  
+      Method 1: public static Singleton INSTANCE = new Singleton();
+      Method 2: Static factory method and return instance . You can maintain a pool of instances .Throw exception 
+                if Reflection tries to create one using setAccessible
+      Method 3: Serialization ? Provide variable as transient and readResolve should return same instance
+      Method 4: ENUM 
+      
+              public enum Elvis {
+                          INSTANCE;
+
+                          public void leaveTheBuilding() { ... }
+                }
+                
+  Non-instantiable Constructor 
+  
+      Private constructor can have exception as insurance . Used for classes that need not have instances
+      
+      Ex: Utility class. Side effect: No inheritance 
         
