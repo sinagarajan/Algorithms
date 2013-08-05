@@ -1,0 +1,7 @@
+Creating and Destroying Objects 
+
+  Consider static factory methods instead of constructors
+         Unlike constructors, they have names
+         They are not required to create a new object each time they’re invoked
+         They can return an object of any subtype of their return type
+         They reduce the verbosity of creating parameterized type instances
